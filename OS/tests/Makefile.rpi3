@@ -1,0 +1,23 @@
+# Makefile for RPi3 tests
+
+CROSS_COMPILE = arm-linux-gnueabihf-
+CC = $(CROSS_COMPILE)gcc
+CFLAGS = -Wall -O2 -mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mfloat-abi=hard
+INCLUDES = -I../include
+
+SOURCES = test_ipc_rpi3.c ../kernel/sysv_ipc.c
+OBJECTS = $(SOURCES:.c=.o)
+TARGET = test_ipc_rpi3
+
+.PHONY: all clean
+
+all: $(TARGET)
+
+$(TARGET): $(OBJECTS)
+	$(CC) $(OBJECTS) -o $@
+
+%.o: %.c
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+
+clean:
+	rm -f $(OBJECTS) $(TARGET)

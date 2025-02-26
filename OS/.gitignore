@@ -1,0 +1,19 @@
+# Build artifacts
+build/
+*.o
+*.img
+
+# System files
+.DS_Store
+.vscode/
+*.swp
+
+# Temporary files
+*.tmp
+*.bak
+
+# Log files
+*.log
+
+# Dependencies
+node_modules/

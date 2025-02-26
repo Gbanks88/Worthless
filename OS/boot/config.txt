@@ -1,0 +1,37 @@
+# Raspberry Pi 3 Configuration
+arm_64bit=0
+kernel=kernel7.img
+
+# CPU configuration
+arm_freq=1200
+over_voltage=0
+temp_limit=85
+
+# Memory configuration
+gpu_mem=128
+
+# Display configuration
+hdmi_force_hotplug=1
+hdmi_group=1
+hdmi_mode=16
+
+# Network configuration
+dtoverlay=disable-wifi
+dtoverlay=disable-bt
+
+# Enable hardware watchdog
+dtparam=watchdog=on
+
+# Enable I2C
+dtparam=i2c_arm=on
+
+# Enable SPI
+dtparam=spi=on
+
+# Enable audio
+dtparam=audio=on
+
+# Boot configuration
+boot_delay=0
+disable_splash=1
+avoid_warnings=1
